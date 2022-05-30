@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
 {
     public partial class formularzNad : Form
     {
+        PhotoGallery photoGallery = new PhotoGallery();
+        StudentsDataBase studentDB = new StudentsDataBase();
         private int childFormNumber = 0;
 
         public formularzNad()
@@ -100,7 +102,20 @@ namespace WindowsFormsApp1
 
         private void przegladarkaObrazowToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            studentDB.Visible = false;
+            photoGallery.Visible = true;
+            photoGallery.Dock = DockStyle.Left;
+            photoGallery.MdiParent = this;
+            photoGallery.Show();
+        }
 
+        private void bazaDanychStudentowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            studentDB.Visible = true;
+            photoGallery.Visible = false;
+            studentDB.Dock = DockStyle.Left;
+            studentDB.MdiParent = this;
+            studentDB.Show();
         }
     }
 }

@@ -95,7 +95,7 @@
             // 
             // formularzButton
             // 
-            this.formularzButton.Location = new System.Drawing.Point(30, 247);
+            this.formularzButton.Location = new System.Drawing.Point(29, 201);
             this.formularzButton.Name = "formularzButton";
             this.formularzButton.Size = new System.Drawing.Size(250, 40);
             this.formularzButton.TabIndex = 7;
@@ -105,7 +105,7 @@
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(30, 201);
+            this.dodajButton.Location = new System.Drawing.Point(29, 247);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(250, 40);
             this.dodajButton.TabIndex = 8;

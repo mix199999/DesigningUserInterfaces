@@ -46,7 +46,7 @@
             this.autorToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(843, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1085, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -71,6 +71,7 @@
             this.bazaDanychStudentowToolStripMenuItem.Name = "bazaDanychStudentowToolStripMenuItem";
             this.bazaDanychStudentowToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.bazaDanychStudentowToolStripMenuItem.Text = "Baza danych studentow";
+            this.bazaDanychStudentowToolStripMenuItem.Click += new System.EventHandler(this.bazaDanychStudentowToolStripMenuItem_Click);
             // 
             // autorToolStripMenuItem
             // 
@@ -82,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 558);
+            this.ClientSize = new System.Drawing.Size(1085, 757);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;

@@ -13,8 +13,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         Button newButton = new Button();
-        Button aaa2 = new Button();
-        Button dupa = new Button();
+        
         public Form1()
         {
             this.newButton.Click += new System.EventHandler(this.ukryjNowyButton);

@@ -11,7 +11,8 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class formularzNad : Form
-    {
+    {  
+      
         private int childFormNumber = 0;
 
         public formularzNad()
@@ -100,7 +101,10 @@ namespace WindowsFormsApp1
 
         private void przegladarkaObrazowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PhotoGallery photoGallery = new PhotoGallery();
+            photoGallery.Dock = DockStyle.Fill;
+            photoGallery.MdiParent = this;
+            photoGallery.Show();
         }
     }
 }

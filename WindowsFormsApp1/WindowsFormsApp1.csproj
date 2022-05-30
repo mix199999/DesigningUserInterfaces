@@ -58,6 +58,12 @@
     <Compile Include="formularzNad.Designer.cs">
       <DependentUpon>formularzNad.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhotoGallery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhotoGallery.Designer.cs">
+      <DependentUpon>PhotoGallery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularzNad.resx">
       <DependentUpon>formularzNad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhotoGallery.resx">
+      <DependentUpon>PhotoGallery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

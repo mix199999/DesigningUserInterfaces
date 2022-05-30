@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     {
         Button newButton = new Button();
         Button aaa2 = new Button();
+        Button dupa = new Button();
         public Form1()
         {
             this.newButton.Click += new System.EventHandler(this.ukryjNowyButton);

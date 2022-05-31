@@ -71,7 +71,7 @@
             this.bazaDanychStudentowToolStripMenuItem.Name = "bazaDanychStudentowToolStripMenuItem";
             this.bazaDanychStudentowToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.bazaDanychStudentowToolStripMenuItem.Text = "Baza danych studentow";
-            this.bazaDanychStudentowToolStripMenuItem.Click += new System.EventHandler(this.bazaDanychStudentowToolStripMenuItem_Click);
+            //this.bazaDanychStudentowToolStripMenuItem.Click += new System.EventHandler(this.bazaDanychStudentowToolStripMenuItem_Click);
             // 
             // autorToolStripMenuItem
             // 

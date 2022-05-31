@@ -14,9 +14,11 @@ namespace WindowsFormsApp1
     {
         List<string> picturesPath = new List<string>()//pewnie da się inaczej
         {
-           "C:/Users/micha_nvu16iq/OneDrive/Pulpit/SEM4/PIU/DesigningUserInterfaces/zd1.jpg",
-            "C:/Users/micha_nvu16iq/OneDrive/Pulpit/SEM4/PIU/DesigningUserInterfaces/zd2.jpg",
-             "C:/Users/micha_nvu16iq/OneDrive/Pulpit/SEM4/PIU/DesigningUserInterfaces/zd3.jpg",
+            "C:/Users/Michau/source/repos/SupportServiceSystem/icons/cross.png",
+            "C:/Users/Michau/source/repos/SupportServiceSystem/icons/crossIcon.png",
+            "C:/Users/Michau/source/repos/SupportServiceSystem/icons/logo.png",
+            "C:/Users/Michau/source/repos/SupportServiceSystem/icons/question.png"
+
 
         };
         public PhotoGallery()
@@ -31,8 +33,8 @@ namespace WindowsFormsApp1
             for (int i = 0; i < pictureBox.Length; i++)
             {
                 pictureBox[i] = new PictureBox();
-                pictureBox[i].Width = 210;//do zmiany
-                pictureBox[i].Height = 120;//do zmiany
+                pictureBox[i].Width = 214;//do zmiany
+                pictureBox[i].Height = 50;//do zmiany
                 pictureBox[i].BorderStyle = BorderStyle.FixedSingle;
                 pictureBox[i].Click += picture_Click;
                 pictureBox[i].ImageLocation = picturesPath[i];
@@ -50,16 +52,8 @@ namespace WindowsFormsApp1
 
         private void picture_Click(object sender, EventArgs e)
         {
-            centerPictureBox.Visible = true;
             var picture = sender as PictureBox;
-            Bitmap image = new Bitmap(picture.ImageLocation);
-           
-            centerPictureBox.Image = image;
-        }
-
-        private void deletePicture_Click(object sender, EventArgs e)
-        {
-            centerPictureBox.Visible = false;
+            centerPictureBox.ImageLocation = picture.ImageLocation;
         }
     }
 

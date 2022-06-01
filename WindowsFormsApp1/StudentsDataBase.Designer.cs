@@ -36,9 +36,9 @@
             // 
             // showListBt
             // 
-            this.showListBt.Location = new System.Drawing.Point(32, 407);
+            this.showListBt.Location = new System.Drawing.Point(161, 451);
             this.showListBt.Name = "showListBt";
-            this.showListBt.Size = new System.Drawing.Size(198, 38);
+            this.showListBt.Size = new System.Drawing.Size(153, 64);
             this.showListBt.TabIndex = 1;
             this.showListBt.Text = "Wyswetl wiersze listy";
             this.showListBt.UseVisualStyleBackColor = true;
@@ -46,9 +46,9 @@
             // 
             // addStudentBt
             // 
-            this.addStudentBt.Location = new System.Drawing.Point(302, 407);
+            this.addStudentBt.Location = new System.Drawing.Point(455, 451);
             this.addStudentBt.Name = "addStudentBt";
-            this.addStudentBt.Size = new System.Drawing.Size(202, 38);
+            this.addStudentBt.Size = new System.Drawing.Size(153, 64);
             this.addStudentBt.TabIndex = 2;
             this.addStudentBt.Text = "Dodaj studenta";
             this.addStudentBt.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@
             // 
             // deleteStudentBt
             // 
-            this.deleteStudentBt.Location = new System.Drawing.Point(591, 404);
+            this.deleteStudentBt.Location = new System.Drawing.Point(720, 451);
             this.deleteStudentBt.Name = "deleteStudentBt";
-            this.deleteStudentBt.Size = new System.Drawing.Size(153, 41);
+            this.deleteStudentBt.Size = new System.Drawing.Size(153, 65);
             this.deleteStudentBt.TabIndex = 3;
             this.deleteStudentBt.Text = "Usun studenta";
             this.deleteStudentBt.UseVisualStyleBackColor = true;
@@ -67,17 +67,18 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(104, 25);
+            this.listView1.Location = new System.Drawing.Point(161, 12);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(600, 334);
+            this.listView1.Size = new System.Drawing.Size(712, 409);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // StudentsDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1079, 557);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.deleteStudentBt);
             this.Controls.Add(this.addStudentBt);

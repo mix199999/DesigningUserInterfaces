@@ -71,7 +71,7 @@
             this.bazaDanychStudentowToolStripMenuItem.Name = "bazaDanychStudentowToolStripMenuItem";
             this.bazaDanychStudentowToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.bazaDanychStudentowToolStripMenuItem.Text = "Baza danych studentow";
-            //this.bazaDanychStudentowToolStripMenuItem.Click += new System.EventHandler(this.bazaDanychStudentowToolStripMenuItem_Click);
+            this.bazaDanychStudentowToolStripMenuItem.Click += new System.EventHandler(this.bazaDanychStudentowToolStripMenuItem_Click);
             // 
             // autorToolStripMenuItem
             // 
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 757);
+            this.ClientSize = new System.Drawing.Size(1085, 593);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;

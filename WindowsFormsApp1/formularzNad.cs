@@ -11,8 +11,10 @@ using System.Windows.Forms;
 namespace WindowsFormsApp1
 {
     public partial class formularzNad : Form
-    {  
-      
+    {
+
+        PhotoGallery photoGallery = new PhotoGallery();
+        StudentsDataBase studentsData = new StudentsDataBase();
         private int childFormNumber = 0;
 
         public formularzNad()
@@ -101,10 +103,19 @@ namespace WindowsFormsApp1
 
         private void przegladarkaObrazowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PhotoGallery photoGallery = new PhotoGallery();
+            photoGallery.Visible = true;
+            studentsData.Visible = false;
             photoGallery.Dock = DockStyle.Fill;
             photoGallery.MdiParent = this;
-            photoGallery.Show();
+
+        }
+        private void bazaDanychStudentowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            studentsData.Visible = true;
+            photoGallery.Visible = false;
+            studentsData.Dock = DockStyle.Fill;
+            studentsData.MdiParent = this;
+           
         }
     }
 }

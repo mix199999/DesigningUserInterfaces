@@ -13,7 +13,6 @@ namespace WindowsFormsApp1
     public partial class StudentsDataBase : Form
     {
         AddUser addUser = new AddUser();
-        int tmp = 1;
         public StudentsDataBase()
         {
             InitializeComponent();
@@ -28,19 +27,13 @@ namespace WindowsFormsApp1
             listView1.GridLines = true;
             listView1.Columns.Add("Lp.",50,HorizontalAlignment.Left);
             listView1.Columns.Add("Imie i nazwisko",200,HorizontalAlignment.Center);
-            listView1.Columns.Add("Rok urodzenia",100,HorizontalAlignment.Center);
-            listView1.Columns.Add("Kraj",100,HorizontalAlignment.Center);
-
-
-
-            
+            listView1.Columns.Add("Rok urodzenia",150,HorizontalAlignment.Center);
+            listView1.Columns.Add("Kraj",140,HorizontalAlignment.Center);          
         }
 
         private void addStudentBt_Click(object sender, EventArgs e)
-        {
-            
+        {           
             addUser.ShowDialog();
-
         }
 
         private void addStudentDataBt_Click(object sender, EventArgs e)
@@ -54,9 +47,10 @@ namespace WindowsFormsApp1
                 item2.BackColor = item2.Index % 2 == 0 ? Color.Gray : Color.White;
             }
 
-            
-
-
+            for (int i = 0; i <= listView1.Items.Count - 1; i++)
+            {
+                listView1.Items[i].SubItems[0].Text = i.ToString();
+            }
         }
 
         private void deleteStudentBt_Click(object sender, EventArgs e)
@@ -67,9 +61,9 @@ namespace WindowsFormsApp1
             }
 
 
-            for(int i=listView1.Items.Count-1;i>=1;i--)
+            for(int i=0; i<=listView1.Items.Count-1;i++)
             {
-                listView1.Items[0].SubItems[i].Text = i.ToString();
+               listView1.Items[i].SubItems[0].Text = i.ToString();
             }
 
             foreach (ListViewItem item2 in listView1.Items)
@@ -87,6 +81,11 @@ namespace WindowsFormsApp1
             {
                MessageBox.Show(item.SubItems[0].Text + " "+ item.SubItems[1].Text+" " +item.SubItems[2].Text + " " + item.SubItems[3].Text, "ddd", MessageBoxButtons.OK);
             }
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

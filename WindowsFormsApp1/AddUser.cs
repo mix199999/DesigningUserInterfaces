@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
         private void addButton_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            EventHandler handler = addClickedEvent;
+            EventHandler handler = addClickedEvent;     //przejecie zdarzenia klikniecia przycisku
             handler?.Invoke(button, e);
             
         }

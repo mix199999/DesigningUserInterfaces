@@ -65,6 +65,7 @@
             this.xPositionTx.Name = "xPositionTx";
             this.xPositionTx.Size = new System.Drawing.Size(100, 22);
             this.xPositionTx.TabIndex = 3;
+            this.xPositionTx.TextChanged += new System.EventHandler(this.xPositionTx_TextChanged);
             this.xPositionTx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tab_KeyPress);
             // 
             // yPositionTx

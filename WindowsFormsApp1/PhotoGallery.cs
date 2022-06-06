@@ -10,32 +10,56 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+
+    
     public partial class PhotoGallery : Form
     {
-        List<string> picturesPath = new List<string>()//pewnie da się inaczej
+
+        /// <summary>
+        ///Lista z zaimportowanymi do projektu przykładowymi zdjęciami
+        /// </summary>
+        List<Bitmap> picturesList = new List<Bitmap>()
         {
-            "C:/Users/micha_nvu16iq/OneDrive/Pulpit/SEM4/PIU/DesigningUserInterfaces/zd1.jpg",
-            "C:/Users/micha_nvu16iq/OneDrive/Pulpit/SEM4/PIU/DesigningUserInterfaces/zd2.jpg",
-            "C:/Users/micha_nvu16iq/OneDrive/Pulpit/SEM4/PIU/DesigningUserInterfaces/zd3.jpg",
-          
+            new Bitmap(Properties.Resources.zd1),
+             new Bitmap(Properties.Resources.zd2),
+              new Bitmap(Properties.Resources.zd3)
         };
         public PhotoGallery()
         {
             InitializeComponent();
         }
 
+
+
+        /// <summary>
+        ///Metoda po załadowaniu się formularza jako piersze określa 
+        ///parametry dla bocznego flowPanel-u, które pozwalają zaimplementować
+        ///pionowe  przewijanie
+        ///
+        /// następnie tworzona jest tablica PictureBox-ów o wielkości równej
+        /// sumie elemntów listy picturesList
+        /// 
+        /// kolejnym krokiem jest przypisanie opowiednich parametrów elementom
+        /// z tablicy oraz metody przechwytującej zdarzenie kliknięcie  
+        /// </summary>
         private void PhotoGallery_Load(object sender, EventArgs e)
         {
-            PictureBox[] pictureBox = new PictureBox[picturesPath.Count];
+            this.picturesFlowPanel.FlowDirection = FlowDirection.TopDown;
+            this.picturesFlowPanel.AutoScroll = true;
+            this.picturesFlowPanel.WrapContents = false;
+
+            PictureBox[] pictureBox = new PictureBox[picturesList.Count];
 
             for (int i = 0; i < pictureBox.Length; i++)
             {
                 pictureBox[i] = new PictureBox();
-                pictureBox[i].Width = 200;//do zmiany
-                pictureBox[i].Height = 100;//do zmiany
+                pictureBox[i].Width = 200;
+                pictureBox[i].Height = 150;
+                pictureBox[i].Image = picturesList[i];
+                pictureBox[i].SizeMode = PictureBoxSizeMode.StretchImage; // dopasowanie rozmiaru zdjęcia do wielkości pictureBox-a
                 pictureBox[i].BorderStyle = BorderStyle.FixedSingle;
                 pictureBox[i].Click += picture_Click;
-                pictureBox[i].ImageLocation = picturesPath[i];
+                
             }
 
             foreach(PictureBox box in pictureBox)
@@ -48,20 +72,24 @@ namespace WindowsFormsApp1
             
         }
 
+        /// <summary>
+        /// metoda przypisuje sender-owi parametry PictureBox-a
+        /// dzięki czemu możemy wykorzystać dostępne dla niego metody
+         
+        /// </summary>
+
         private void picture_Click(object sender, EventArgs e)
         {
             var picture = sender as PictureBox;
-            centerPictureBox.ImageLocation = picture.ImageLocation;
+            centerPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            centerPictureBox.Image = picture.Image;
         }
 
-        private void picturesFlowPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            centerPictureBox.ImageLocation=null;
+            centerPictureBox.Image=null;
         }
     }
 

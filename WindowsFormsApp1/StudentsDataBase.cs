@@ -12,12 +12,12 @@ namespace WindowsFormsApp1
 {
     public partial class StudentsDataBase : Form
     {
-        AddUser addUser = new AddUser();
+        AddUser addUser = new AddUser(); // wywołanie instancji formularza AddUser
         public StudentsDataBase()
         {
             InitializeComponent();
 
-            this.addUser.addClickedEvent += addStudentDataBt_Click;     //przechwycenie eventu dodawania studentow
+            this.addUser.addClickedEvent += addStudentDataBt_Click;     //przechwycenie eventu przycisku Dodaj znajdującego się w formularzu AddUser  
         }
 
         private void StudentsDataBase_Load(object sender, EventArgs e)
@@ -33,60 +33,76 @@ namespace WindowsFormsApp1
 
         private void addStudentBt_Click(object sender, EventArgs e)
         {           
-            addUser.ShowDialog();     // otwarcie formularza dodawnia uzytkownika po kliknieciu przycisku
+            addUser.ShowDialog();     // wyświetlenie formularza addUser w formularzu MDI
         }
 
         private void addStudentDataBt_Click(object sender, EventArgs e)
         {
-            int index = listView1.Items.Count +1;   //liczenie ilosci indexow studentow
-            ListViewItem item = new ListViewItem(new string[] {index.ToString(), addUser.NameTb.Text, addUser.BirthTb.Text,addUser.CountryTb.Text  }); //informacje na temat nowego studenta
+            int index = listView1.Items.Count +1;   //suma wszystkich elementów znadujących się w listView1
+            ListViewItem item = new ListViewItem(new string[] {index.ToString(), addUser.NameTb.Text, addUser.BirthTb.Text,addUser.CountryTb.Text  }); //przypisanie wartości z pól formularza addUser jako elementu obiektu ListView
           
-            listView1.Items.Add(item);      //dodanie do listview studenta
+            listView1.Items.Add(item);      //dodanie wcześniej utworzonego Elementu do listView1
             foreach (ListViewItem item2 in listView1.Items)
             {
-                item2.BackColor = item2.Index % 2 == 0 ? Color.Gray : Color.White; //funkcja ktora powoduje ustawienie koloru co drugiego ustudentow na szary
+                item2.BackColor = item2.Index % 2 == 0 ? Color.Gray : Color.White; //pętla, która odpowiada za zmianę koloru tła poszczególnego elementu z obiektu listView
             }
 
             for (int i = 0; i <= listView1.Items.Count - 1; i++)
             {
-                listView1.Items[i].SubItems[0].Text = i.ToString();     //funkcja, ktora zajmuje sie auto indexowaniem studentow
+                listView1.Items[i].SubItems[0].Text = i.ToString();     //pętla odpowiadająca za autoindex-owanie rekordów z listy
             }
         }
-
+        /// <summary>
+        /// metoda odpowiada za usunięcie zaznaczonych rekordów
+        /// z listy listView1
+        /// W samej funkcji znajdują się wcześniej wykorzystane pętle
+        /// odpowiadajaće za ustalanie kolorów tła oraz autoindex-owanie
+        /// </summary>
+      
         private void deleteStudentBt_Click(object sender, EventArgs e)
         {
-            foreach(ListViewItem item in listView1.SelectedItems)
+            foreach (ListViewItem item in listView1.SelectedItems)
             {
-                listView1.Items.Remove(item);           //usuwanie studentow po zaznaczeniu ich w listview
+                listView1.Items.Remove(item);           
             }
 
 
-            for(int i=0; i<=listView1.Items.Count-1;i++)
+
+
+            for (int i = listView1.SelectedItems.Count - 1; i >= 0; i--)
             {
-               listView1.Items[i].SubItems[0].Text = i.ToString();    //funkcja, ktora zajmuje sie auto indexowaniem studentow 
+                ListViewItem selectedItemsList = listView1.SelectedItems[i];
+                listView1.Items[selectedItemsList.Index].Remove();
+            }
+
+            for (int i=0; i<=listView1.Items.Count-1;i++)
+            {
+               listView1.Items[i].SubItems[0].Text = i.ToString();   
             }
 
             foreach (ListViewItem item2 in listView1.Items)
             {
-                item2.BackColor = item2.Index % 2 == 0 ? Color.Gray : Color.White;      //funkcja ktora powoduje ustawienie koloru co drugiego ustudentow na szary
+                item2.BackColor = item2.Index % 2 == 0 ? Color.Gray : Color.White;      
             }
 
         }
+        /// <summary>
+        /// funkcja odpowania za wyświetlenie wszystkich rekordów w messsagebox-ach
+        /// iteracja elementów jest zrealizowana przy użyciu pętli foreach
+        /// </summary>
+        
 
         private void showListBt_Click(object sender, EventArgs e)
         {
             
 
-            foreach(ListViewItem item in listView1.Items)               //funkcja powodujaca wyswietlenie studentow w messageboxie
+            foreach(ListViewItem item in listView1.Items)               
             {
                MessageBox.Show(item.SubItems[0].Text + " "+ item.SubItems[1].Text+" " +item.SubItems[2].Text + " " + item.SubItems[3].Text, "ddd", MessageBoxButtons.OK);
             }
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

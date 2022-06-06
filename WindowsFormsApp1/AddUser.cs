@@ -21,10 +21,16 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja realizuje wywołanie zdarzenia addClickedEvent
+        /// dzięki czemu w formularzu nadrzędnym można przesłonić tą metodę
+        /// </summary>
+        /// <param name="sender">class Button</param>
+
         private void addButton_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            EventHandler handler = addClickedEvent;     //przejecie zdarzenia klikniecia przycisku
+            EventHandler handler = addClickedEvent;     
             handler?.Invoke(button, e);
             
         }

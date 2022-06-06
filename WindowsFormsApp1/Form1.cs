@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         Button newButton = new Button();
-        
+
         public Form1()
         {
             this.newButton.Click += new System.EventHandler(this.ukryjNowyButton);  //przechwycenie eventu ukrywania przycisku
@@ -30,18 +30,18 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ustawButton.TabStop = false;       //blokada przechodzenia tabem miedzy przyciskami
-            this.formularzButton.TabStop=false;
-            this.dodajButton.TabStop=false;
-           
+            this.formularzButton.TabStop = false;
+            this.dodajButton.TabStop = false;
+
             newButton.Size = new Size(ustawButton.Width, ustawButton.Height);  // nowy przycisk
             newButton.Text = "nowy";
 
             newButton.Location = new Point(ustawButton.Location.X + ustawButton.Width, ustawButton.Location.Y);
-            
+
         }
 
         private void Tab_KeyPress(object sender, KeyPressEventArgs e)
-        {      
+        {
 
         }
 
@@ -51,24 +51,24 @@ namespace WindowsFormsApp1
             {
                 this.Text = titleTx.Text;                 //pobranie tytulu i ustawienie go
                 this.Location = new Point(Int32.Parse(xPositionTx.Text), Int32.Parse(yPositionTx.Text));        //pobranie lokalizacji i ustawienie jej
-              
+
             }
             catch (System.FormatException)
             {
-                MessageBox.Show("Podano zla wartosc!","blad",MessageBoxButtons.OK,MessageBoxIcon.Error);         //obsluga bledow podawania informacji
+                MessageBox.Show("Podano zla wartosc!", "blad", MessageBoxButtons.OK, MessageBoxIcon.Error);         //obsluga bledow podawania informacji
             }
         }
 
         private void dodajButton_Click(object sender, EventArgs e)
         {
-            if(newButton.Visible == false)
+            if (newButton.Visible == false)
             {
                 newButton.Visible = true;           //widok nowego przycisku
                 this.groupBox1.Controls.Add(newButton);     //dodanie przycisku do groupboxa
                 newButton.Location = new Point(ustawButton.Location.X + ustawButton.Width, ustawButton.Location.Y);  //ustawienie lokalizacji przyciskow
-                ustawButton.Location = new Point(newButton.Location.X - 2*newButton.Width, newButton.Location.Y);
+                ustawButton.Location = new Point(newButton.Location.X - 2 * newButton.Width, newButton.Location.Y);
             }
-            
+
 
 
         }
@@ -91,3 +91,4 @@ namespace WindowsFormsApp1
 
         }
     }
+}
